@@ -12,6 +12,8 @@ import Complaints from './pages/Complaints/Complaints';
 import Analytics from './pages/Analytics/Analytics';
 import AIInsights from './pages/Insights/AIInsights';
 import Performance from './pages/Performance/Performance';
+import Profile from './pages/Profile/Profile';
+import Notifications from './pages/Notifications/Notifications';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
               <Route path="analytics" element={<Analytics />} />
               <Route path="insights" element={<AIInsights />} />
               <Route path="performance" element={<Performance />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="notifications" element={<Notifications />} />
             </Route>
 
             {/* Catch all - redirect to dashboard */}

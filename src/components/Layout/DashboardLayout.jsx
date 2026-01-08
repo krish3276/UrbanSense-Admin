@@ -45,6 +45,7 @@ const menuItems = [
   { text: 'Department Analytics', icon: <Analytics />, path: '/analytics' },
   { text: 'AI Insights', icon: <Psychology />, path: '/insights' },
   { text: 'Performance', icon: <Assessment />, path: '/performance' },
+  { text: 'Notifications', icon: <Notifications />, path: '/notifications' },
 ];
 
 const DashboardLayout = () => {
@@ -212,7 +213,7 @@ const DashboardLayout = () => {
           </Box>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <IconButton color="primary">
+            <IconButton color="primary" onClick={() => navigate('/notifications')}>
               <Badge badgeContent={4} color="error">
                 <Notifications />
               </Badge>
@@ -232,7 +233,7 @@ const DashboardLayout = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleMenuClose}>
+        <MenuItem onClick={() => { handleMenuClose(); navigate('/profile'); }}>
           <ListItemIcon>
             <AccountCircle fontSize="small" />
           </ListItemIcon>
