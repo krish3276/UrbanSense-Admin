@@ -120,10 +120,10 @@ const Performance = () => {
     <Box>
       {/* Header */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight={700} gutterBottom>
+        <Typography variant="h4" fontWeight={700} gutterBottom color="#FFFFFF">
           Officer Performance
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="#9A9A9A">
           Track and analyze officer performance metrics
         </Typography>
       </Box>
@@ -150,8 +150,8 @@ const Performance = () => {
                     top: -10,
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    bgcolor: 'warning.main',
-                    color: 'white',
+                    bgcolor: '#D4A73C',
+                    color: '#0B0B0B',
                     borderRadius: '50%',
                     width: 32,
                     height: 32,
@@ -168,24 +168,25 @@ const Performance = () => {
                   sx={{
                     width: 64,
                     height: 64,
-                    bgcolor: 'primary.main',
+                    bgcolor: '#D4A73C',
+                    color: '#0B0B0B',
                     fontSize: 24,
                     margin: '0 auto 12px',
                   }}
                 >
                   {officer.name.charAt(0)}
                 </Avatar>
-                <Typography variant="subtitle1" fontWeight={600} noWrap>
+                <Typography variant="subtitle1" fontWeight={600} noWrap color="#FFFFFF">
                   {officer.name}
                 </Typography>
-                <Typography variant="caption" color="text.secondary" display="block">
+                <Typography variant="caption" color="#9A9A9A" display="block">
                   {officer.department.split(' ')[0]}
                 </Typography>
                 <Box sx={{ mt: 2 }}>
-                  <Typography variant="h5" fontWeight={700} color="primary.main">
+                  <Typography variant="h5" fontWeight={700} color="#D4A73C">
                     {officer.resolvedComplaints}
                   </Typography>
-                  <Typography variant="caption" color="text.secondary">
+                  <Typography variant="caption" color="#9A9A9A">
                     Resolved
                   </Typography>
                 </Box>
@@ -210,19 +211,21 @@ const Performance = () => {
               <Box sx={{ height: 350, mt: 2 }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={departmentPerformance}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis dataKey="department" stroke="#666" />
-                    <YAxis stroke="#666" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis dataKey="department" stroke="#9A9A9A" />
+                    <YAxis stroke="#9A9A9A" />
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
                         border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
                       }}
                     />
                     <Legend />
-                    <Bar dataKey="resolved" name="Complaints Resolved" fill="#1976d2" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="officers" name="Active Officers" fill="#7b1fa2" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="resolved" name="Complaints Resolved" fill="#D4A73C" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="officers" name="Active Officers" fill="#3498DB" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Box>
@@ -240,32 +243,39 @@ const Performance = () => {
               <Box sx={{ height: 350, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart data={radarData}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="name" />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                    <PolarGrid stroke="#2A2A2A" />
+                    <PolarAngleAxis dataKey="name" stroke="#9A9A9A" />
+                    <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#9A9A9A" />
                     <Radar
                       name="Complaints"
                       dataKey="complaints"
-                      stroke="#1976d2"
-                      fill="#1976d2"
+                      stroke="#D4A73C"
+                      fill="#D4A73C"
                       fillOpacity={0.3}
                     />
                     <Radar
                       name="Speed"
                       dataKey="speed"
-                      stroke="#2e7d32"
-                      fill="#2e7d32"
+                      stroke="#2ECC71"
+                      fill="#2ECC71"
                       fillOpacity={0.3}
                     />
                     <Radar
                       name="Feedback"
                       dataKey="feedback"
-                      stroke="#ed6c02"
-                      fill="#ed6c02"
+                      stroke="#3498DB"
+                      fill="#3498DB"
                       fillOpacity={0.3}
                     />
                     <Legend />
-                    <Tooltip />
+                    <Tooltip
+                      contentStyle={{
+                        borderRadius: 8,
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
+                        border: 'none',
+                      }}
+                    />
                   </RadarChart>
                 </ResponsiveContainer>
               </Box>
@@ -292,33 +302,33 @@ const Performance = () => {
                 <Grid container spacing={2}>
                   <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
-                      <Assignment sx={{ color: 'primary.main', fontSize: 20 }} />
-                      <Typography variant="h6" fontWeight={600}>
+                      <Assignment sx={{ color: '#D4A73C', fontSize: 20 }} />
+                      <Typography variant="h6" fontWeight={600} color="#FFFFFF">
                         {dept.resolved}
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="#9A9A9A">
                         Resolved
                       </Typography>
                     </Box>
                   </Grid>
                   <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
-                      <Speed sx={{ color: 'warning.main', fontSize: 20 }} />
-                      <Typography variant="h6" fontWeight={600}>
+                      <Speed sx={{ color: '#F39C12', fontSize: 20 }} />
+                      <Typography variant="h6" fontWeight={600} color="#FFFFFF">
                         {dept.responseTime}h
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="#9A9A9A">
                         Avg. Time
                       </Typography>
                     </Box>
                   </Grid>
                   <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
-                      <ThumbUp sx={{ color: 'success.main', fontSize: 20 }} />
-                      <Typography variant="h6" fontWeight={600}>
+                      <ThumbUp sx={{ color: '#2ECC71', fontSize: 20 }} />
+                      <Typography variant="h6" fontWeight={600} color="#FFFFFF">
                         {dept.feedback}
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="#9A9A9A">
                         Rating
                       </Typography>
                     </Box>
@@ -394,7 +404,7 @@ const Performance = () => {
                             variant="subtitle2"
                             fontWeight={600}
                             sx={{
-                              color: index < 3 ? 'warning.main' : 'text.primary',
+                              color: index < 3 ? '#D4A73C' : '#FFFFFF',
                             }}
                           >
                             #{page * rowsPerPage + index + 1}
@@ -402,7 +412,7 @@ const Performance = () => {
                         </TableCell>
                         <TableCell>
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                            <Avatar sx={{ bgcolor: 'primary.main' }}>
+                            <Avatar sx={{ bgcolor: '#D4A73C', color: '#0B0B0B' }}>
                               {officer.name.charAt(0)}
                             </Avatar>
                             <Box>

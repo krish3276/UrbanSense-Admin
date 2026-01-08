@@ -39,13 +39,13 @@ import {
   complaints,
 } from '../../data/mockData';
 
-const COLORS = ['#1976d2', '#2e7d32', '#ed6c02', '#d32f2f', '#7b1fa2', '#0097a7'];
+const COLORS = ['#D4A73C', '#2ECC71', '#F39C12', '#E74C3C', '#B8963B', '#3498DB'];
 
 const Dashboard = () => {
   const statusData = [
-    { name: 'Resolved', value: dashboardStats.resolvedComplaints, color: '#2e7d32' },
-    { name: 'Active', value: dashboardStats.activeComplaints, color: '#1976d2' },
-    { name: 'Critical', value: dashboardStats.criticalIssues, color: '#d32f2f' },
+    { name: 'Resolved', value: dashboardStats.resolvedComplaints, color: '#2ECC71' },
+    { name: 'Active', value: dashboardStats.activeComplaints, color: '#3498DB' },
+    { name: 'Critical', value: dashboardStats.criticalIssues, color: '#E74C3C' },
   ];
 
   const recentComplaints = complaints.slice(0, 5);
@@ -82,10 +82,10 @@ const Dashboard = () => {
     <Box>
       {/* Header */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight={700} gutterBottom>
+        <Typography variant="h4" fontWeight={700} gutterBottom color="#FFFFFF">
           City Overview
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="#9A9A9A">
           Real-time monitoring of city infrastructure and complaints
         </Typography>
       </Box>
@@ -97,7 +97,7 @@ const Dashboard = () => {
             title="Complaints Today"
             value={dashboardStats.totalComplaintsToday}
             icon={<ReportProblem sx={{ fontSize: 28 }} />}
-            color="#1976d2"
+            color="#D4A73C"
             trend={{ positive: false, value: '12%', label: 'vs yesterday' }}
           />
         </Grid>
@@ -106,7 +106,7 @@ const Dashboard = () => {
             title="Active Complaints"
             value={dashboardStats.activeComplaints}
             icon={<TrendingUp sx={{ fontSize: 28 }} />}
-            color="#ed6c02"
+            color="#F39C12"
             subtitle="Requires attention"
           />
         </Grid>
@@ -115,7 +115,7 @@ const Dashboard = () => {
             title="Resolved This Month"
             value={dashboardStats.resolvedComplaints}
             icon={<CheckCircle sx={{ fontSize: 28 }} />}
-            color="#2e7d32"
+            color="#2ECC71"
             trend={{ positive: true, value: '18%', label: 'vs last month' }}
           />
         </Grid>
@@ -124,7 +124,7 @@ const Dashboard = () => {
             title="Critical Issues"
             value={dashboardStats.criticalIssues}
             icon={<Warning sx={{ fontSize: 28 }} />}
-            color="#d32f2f"
+            color="#E74C3C"
             subtitle="Immediate action needed"
           />
         </Grid>
@@ -137,7 +137,7 @@ const Dashboard = () => {
             title="Avg. Resolution Time"
             value={`${dashboardStats.avgResolutionTime}h`}
             icon={<Timer sx={{ fontSize: 28 }} />}
-            color="#0097a7"
+            color="#3498DB"
             trend={{ positive: true, value: '8%', label: 'improvement' }}
           />
         </Grid>
@@ -146,7 +146,7 @@ const Dashboard = () => {
             title="Total Officers"
             value={dashboardStats.totalOfficers}
             icon={<People sx={{ fontSize: 28 }} />}
-            color="#7b1fa2"
+            color="#B8963B"
             subtitle={`${dashboardStats.activeOfficers} currently active`}
           />
         </Grid>
@@ -155,7 +155,7 @@ const Dashboard = () => {
             title="Active Officers"
             value={dashboardStats.activeOfficers}
             icon={<TrendingUp sx={{ fontSize: 28 }} />}
-            color="#388e3c"
+            color="#2ECC71"
             subtitle="On duty today"
           />
         </Grid>
@@ -164,7 +164,7 @@ const Dashboard = () => {
             title="Citizen Satisfaction"
             value={`${dashboardStats.citizenSatisfaction}/5`}
             icon={<ThumbUp sx={{ fontSize: 28 }} />}
-            color="#1976d2"
+            color="#D4A73C"
             trend={{ positive: true, value: '0.3', label: 'improvement' }}
           />
         </Grid>
@@ -184,28 +184,29 @@ const Dashboard = () => {
                   <AreaChart data={weeklyTrends}>
                     <defs>
                       <linearGradient id="colorComplaints" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#1976d2" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#1976d2" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#D4A73C" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#D4A73C" stopOpacity={0} />
                       </linearGradient>
                       <linearGradient id="colorResolved" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#2e7d32" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#2e7d32" stopOpacity={0} />
+                        <stop offset="5%" stopColor="#2ECC71" stopOpacity={0.3} />
+                        <stop offset="95%" stopColor="#2ECC71" stopOpacity={0} />
                       </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis dataKey="day" stroke="#666" />
-                    <YAxis stroke="#666" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis dataKey="day" stroke="#9A9A9A" />
+                    <YAxis stroke="#9A9A9A" />
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
-                        border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        border: '1px solid #2A2A2A',
+                        backgroundColor: '#1E1E1E',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
                       }}
                     />
                     <Area
                       type="monotone"
                       dataKey="complaints"
-                      stroke="#1976d2"
+                      stroke="#D4A73C"
                       fillOpacity={1}
                       fill="url(#colorComplaints)"
                       strokeWidth={2}
@@ -214,7 +215,7 @@ const Dashboard = () => {
                     <Area
                       type="monotone"
                       dataKey="resolved"
-                      stroke="#2e7d32"
+                      stroke="#2ECC71"
                       fillOpacity={1}
                       fill="url(#colorResolved)"
                       strokeWidth={2}
@@ -254,8 +255,9 @@ const Dashboard = () => {
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
-                        border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        border: '1px solid #2A2A2A',
+                        backgroundColor: '#1E1E1E',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
                       }}
                     />
                     <Legend />
@@ -283,25 +285,26 @@ const Dashboard = () => {
                     layout="vertical"
                     margin={{ left: 120 }}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis type="number" stroke="#666" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis type="number" stroke="#9A9A9A" />
                     <YAxis
                       dataKey="department"
                       type="category"
-                      stroke="#666"
+                      stroke="#9A9A9A"
                       width={110}
                       tick={{ fontSize: 12 }}
                     />
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
-                        border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        border: '1px solid #2A2A2A',
+                        backgroundColor: '#1E1E1E',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
                       }}
                     />
-                    <Bar dataKey="resolved" name="Resolved" fill="#2e7d32" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="pending" name="Pending" fill="#ed6c02" radius={[0, 4, 4, 0]} />
-                    <Bar dataKey="inProgress" name="In Progress" fill="#1976d2" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="resolved" name="Resolved" fill="#2ECC71" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="pending" name="Pending" fill="#F39C12" radius={[0, 4, 4, 0]} />
+                    <Bar dataKey="inProgress" name="In Progress" fill="#3498DB" radius={[0, 4, 4, 0]} />
                     <Legend />
                   </BarChart>
                 </ResponsiveContainer>
@@ -325,12 +328,13 @@ const Dashboard = () => {
                       p: 2,
                       mb: 1.5,
                       borderRadius: 2,
-                      bgcolor: 'grey.50',
-                      '&:hover': { bgcolor: 'grey.100' },
+                      bgcolor: '#1E1E1E',
+                      border: '1px solid #2A2A2A',
+                      '&:hover': { bgcolor: '#252525', borderColor: '#D4A73C' },
                     }}
                   >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                      <Typography variant="subtitle2" fontWeight={600}>
+                      <Typography variant="subtitle2" fontWeight={600} color="#D4A73C">
                         {complaint.id}
                       </Typography>
                       <Chip

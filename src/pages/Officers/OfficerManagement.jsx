@@ -217,10 +217,10 @@ const OfficerManagement = () => {
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
         <Box>
-          <Typography variant="h4" fontWeight={700} gutterBottom>
+          <Typography variant="h4" fontWeight={700} gutterBottom color="#FFFFFF">
             Officer Management
           </Typography>
-          <Typography variant="body1" color="text.secondary">
+          <Typography variant="body1" color="#9A9A9A">
             Register and manage field officers for complaint resolution
           </Typography>
         </Box>
@@ -229,9 +229,13 @@ const OfficerManagement = () => {
           startIcon={<Add />}
           onClick={() => handleOpenDialog('add')}
           sx={{
-            background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
+            background: 'linear-gradient(135deg, #D4A73C 0%, #B8963B 100%)',
+            color: '#0B0B0B',
             px: 3,
             py: 1.5,
+            '&:hover': {
+              background: 'linear-gradient(135deg, #E4C06C 0%, #D4A73C 100%)',
+            },
           }}
         >
           Register Officer
@@ -601,12 +605,16 @@ const OfficerManagement = () => {
           </Box>
         </DialogContent>
         <DialogActions sx={{ p: 2.5 }}>
-          <Button onClick={handleCloseDialog}>Cancel</Button>
+          <Button onClick={handleCloseDialog} sx={{ color: '#9A9A9A' }}>Cancel</Button>
           <Button
             variant="contained"
             onClick={handleSubmit}
             sx={{
-              background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
+              background: 'linear-gradient(135deg, #D4A73C 0%, #B8963B 100%)',
+              color: '#0B0B0B',
+              '&:hover': {
+                background: 'linear-gradient(135deg, #E4C06C 0%, #D4A73C 100%)',
+              },
             }}
           >
             {dialogMode === 'add' ? 'Register Officer' : 'Save Changes'}

@@ -42,28 +42,28 @@ const AIInsights = () => {
   const getInsightColor = (severity) => {
     switch (severity) {
       case 'critical':
-        return { bg: '#ffebee', color: '#d32f2f', border: '#ffcdd2' };
+        return { bg: '#1C1414', color: '#E74C3C', border: '#3D2020' };
       case 'high':
-        return { bg: '#fff3e0', color: '#e65100', border: '#ffe0b2' };
+        return { bg: '#1C1915', color: '#F39C12', border: '#3D3520' };
       case 'medium':
-        return { bg: '#e3f2fd', color: '#1565c0', border: '#bbdefb' };
+        return { bg: '#151A1C', color: '#3498DB', border: '#203040' };
       case 'positive':
-        return { bg: '#e8f5e9', color: '#2e7d32', border: '#c8e6c9' };
+        return { bg: '#151C16', color: '#2ECC71', border: '#204030' };
       case 'warning':
-        return { bg: '#fffde7', color: '#f9a825', border: '#fff9c4' };
+        return { bg: '#1C1A14', color: '#D4A73C', border: '#3D3020' };
       default:
-        return { bg: '#f5f5f5', color: '#757575', border: '#e0e0e0' };
+        return { bg: '#1E1E1E', color: '#9A9A9A', border: '#2A2A2A' };
     }
   };
 
   const getTrendIcon = (trend) => {
     switch (trend) {
       case 'increasing':
-        return <TrendingUp sx={{ color: 'error.main' }} />;
+        return <TrendingUp sx={{ color: '#E74C3C' }} />;
       case 'decreasing':
-        return <TrendingDown sx={{ color: 'success.main' }} />;
+        return <TrendingDown sx={{ color: '#2ECC71' }} />;
       case 'stable':
-        return <TrendingFlat sx={{ color: 'info.main' }} />;
+        return <TrendingFlat sx={{ color: '#3498DB' }} />;
       default:
         return null;
     }
@@ -102,12 +102,12 @@ const AIInsights = () => {
       {/* Header */}
       <Box sx={{ mb: 4 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1 }}>
-          <Psychology sx={{ fontSize: 32, color: 'primary.main' }} />
-          <Typography variant="h4" fontWeight={700}>
+          <Psychology sx={{ fontSize: 32, color: '#D4A73C' }} />
+          <Typography variant="h4" fontWeight={700} color="#FFFFFF">
             AI Insights
           </Typography>
         </Box>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="#9A9A9A">
           AI-powered analysis of city infrastructure patterns and predictions
         </Typography>
       </Box>
@@ -133,7 +133,7 @@ const AIInsights = () => {
                         width: 48,
                         height: 48,
                         borderRadius: 2,
-                        bgcolor: 'white',
+                        bgcolor: '#151515',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -210,9 +210,9 @@ const AIInsights = () => {
                       sx={{
                         height: 6,
                         borderRadius: 3,
-                        bgcolor: 'grey.200',
+                        bgcolor: '#2A2A2A',
                         '& .MuiLinearProgress-bar': {
-                          bgcolor: spot.risk > 70 ? 'error.main' : spot.risk > 50 ? 'warning.main' : 'success.main',
+                          bgcolor: spot.risk > 70 ? '#E74C3C' : spot.risk > 50 ? '#F39C12' : '#2ECC71',
                         },
                       }}
                     />
@@ -241,9 +241,9 @@ const AIInsights = () => {
                     sx={{
                       p: 2,
                       borderRadius: 2,
-                      bgcolor: 'grey.50',
+                      bgcolor: '#1E1E1E',
                       border: '1px solid',
-                      borderColor: 'grey.200',
+                      borderColor: '#2A2A2A',
                     }}
                   >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
@@ -270,9 +270,9 @@ const AIInsights = () => {
                         sx={{
                           height: 4,
                           borderRadius: 2,
-                          bgcolor: 'grey.300',
+                          bgcolor: '#2A2A2A',
                           '& .MuiLinearProgress-bar': {
-                            bgcolor: pred.confidence > 80 ? 'error.main' : 'warning.main',
+                            bgcolor: pred.confidence > 80 ? '#E74C3C' : '#F39C12',
                           },
                         }}
                       />
@@ -293,41 +293,41 @@ const AIInsights = () => {
           </Typography>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <Box sx={{ textAlign: 'center', p: 2, bgcolor: 'error.50', borderRadius: 2 }}>
-                <Typography variant="h3" fontWeight={700} color="error.main">
+              <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#1C1414', borderRadius: 2 }}>
+                <Typography variant="h3" fontWeight={700} color="#E74C3C">
                   5
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#9A9A9A">
                   Critical Hotspots
                 </Typography>
               </Box>
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <Box sx={{ textAlign: 'center', p: 2, bgcolor: 'warning.50', borderRadius: 2 }}>
-                <Typography variant="h3" fontWeight={700} color="warning.main">
+              <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#1C1A14', borderRadius: 2 }}>
+                <Typography variant="h3" fontWeight={700} color="#F39C12">
                   12
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#9A9A9A">
                   Recurring Patterns
                 </Typography>
               </Box>
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <Box sx={{ textAlign: 'center', p: 2, bgcolor: 'info.50', borderRadius: 2 }}>
-                <Typography variant="h3" fontWeight={700} color="info.main">
+              <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#151A1C', borderRadius: 2 }}>
+                <Typography variant="h3" fontWeight={700} color="#3498DB">
                   3
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#9A9A9A">
                   Active Predictions
                 </Typography>
               </Box>
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <Box sx={{ textAlign: 'center', p: 2, bgcolor: 'success.50', borderRadius: 2 }}>
-                <Typography variant="h3" fontWeight={700} color="success.main">
+              <Box sx={{ textAlign: 'center', p: 2, bgcolor: '#151C16', borderRadius: 2 }}>
+                <Typography variant="h3" fontWeight={700} color="#2ECC71">
                   87%
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="#9A9A9A">
                   Prediction Accuracy
                 </Typography>
               </Box>

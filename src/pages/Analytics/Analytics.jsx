@@ -32,7 +32,7 @@ import {
 import { departmentAnalytics, monthlyTrends, departments } from '../../data/mockData';
 import { useState } from 'react';
 
-const COLORS = ['#1976d2', '#2e7d32', '#ed6c02', '#d32f2f', '#7b1fa2', '#0097a7'];
+const COLORS = ['#D4A73C', '#2ECC71', '#F39C12', '#E74C3C', '#3498DB', '#9B59B6'];
 
 const Analytics = () => {
   const [timeRange, setTimeRange] = useState('6months');
@@ -70,10 +70,10 @@ const Analytics = () => {
       {/* Header */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
         <Box>
-          <Typography variant="h4" fontWeight={700} gutterBottom>
+          <Typography variant="h4" fontWeight={700} gutterBottom color="#FFFFFF">
             Department Analytics
           </Typography>
-          <Typography variant="body1" color="text.secondary">
+          <Typography variant="body1" color="#9A9A9A">
             Detailed performance metrics across all departments
           </Typography>
         </Box>
@@ -112,40 +112,40 @@ const Analytics = () => {
               }}
             >
               <CardContent>
-                <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                <Typography variant="subtitle2" color="#9A9A9A" gutterBottom>
                   {dept.department}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                   <Box>
-                    <Typography variant="h4" fontWeight={700}>
+                    <Typography variant="h4" fontWeight={700} color="#FFFFFF">
                       {dept.totalComplaints}
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" color="#9A9A9A">
                       Total Complaints
                     </Typography>
                   </Box>
                   <Box sx={{ textAlign: 'right' }}>
-                    <Typography variant="h6" color="success.main" fontWeight={600}>
+                    <Typography variant="h6" color="#2ECC71" fontWeight={600}>
                       {Math.round((dept.resolved / dept.totalComplaints) * 100)}%
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="caption" color="#9A9A9A">
                       Resolution Rate
                     </Typography>
                   </Box>
                 </Box>
                 <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
                   <Box>
-                    <Typography variant="body2" color="success.main" fontWeight={500}>
+                    <Typography variant="body2" color="#2ECC71" fontWeight={500}>
                       {dept.resolved} Resolved
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography variant="body2" color="warning.main" fontWeight={500}>
+                    <Typography variant="body2" color="#F39C12" fontWeight={500}>
                       {dept.pending} Pending
                     </Typography>
                   </Box>
                   <Box>
-                    <Typography variant="body2" color="info.main" fontWeight={500}>
+                    <Typography variant="body2" color="#3498DB" fontWeight={500}>
                       {dept.inProgress} Active
                     </Typography>
                   </Box>
@@ -168,25 +168,27 @@ const Analytics = () => {
               <Box sx={{ height: 350, mt: 2 }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={departmentAnalytics}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
                     <XAxis
                       dataKey="department"
-                      stroke="#666"
+                      stroke="#9A9A9A"
                       tick={{ fontSize: 11 }}
                       tickFormatter={(value) => value.split(' ')[0]}
                     />
-                    <YAxis stroke="#666" />
+                    <YAxis stroke="#9A9A9A" />
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
                         border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
                       }}
                     />
                     <Legend />
-                    <Bar dataKey="resolved" name="Resolved" fill="#2e7d32" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="pending" name="Pending" fill="#ed6c02" radius={[4, 4, 0, 0]} />
-                    <Bar dataKey="inProgress" name="In Progress" fill="#1976d2" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="resolved" name="Resolved" fill="#2ECC71" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="pending" name="Pending" fill="#F39C12" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="inProgress" name="In Progress" fill="#3498DB" radius={[4, 4, 0, 0]} />
                   </BarChart>
                 </ResponsiveContainer>
               </Box>
@@ -214,9 +216,9 @@ const Analytics = () => {
                       dataKey="value"
                       label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                     >
-                      <Cell fill="#2e7d32" />
-                      <Cell fill="#ed6c02" />
-                      <Cell fill="#1976d2" />
+                      <Cell fill="#2ECC71" />
+                      <Cell fill="#F39C12" />
+                      <Cell fill="#3498DB" />
                     </Pie>
                     <Tooltip />
                   </PieChart>
@@ -239,22 +241,24 @@ const Analytics = () => {
               <Box sx={{ height: 300, mt: 2 }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={resolutionTimeData} layout="vertical">
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis type="number" stroke="#666" unit="h" />
-                    <YAxis dataKey="department" type="category" stroke="#666" width={80} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis type="number" stroke="#9A9A9A" unit="h" />
+                    <YAxis dataKey="department" type="category" stroke="#9A9A9A" width={80} />
                     <Tooltip
                       formatter={(value) => [`${value} hours`, 'Avg. Time']}
                       contentStyle={{
                         borderRadius: 8,
                         border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
                       }}
                     />
-                    <Bar dataKey="avgTime" fill="#0097a7" radius={[0, 4, 4, 0]}>
+                    <Bar dataKey="avgTime" fill="#3498DB" radius={[0, 4, 4, 0]}>
                       {resolutionTimeData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.avgTime > 24 ? '#d32f2f' : entry.avgTime > 12 ? '#ed6c02' : '#2e7d32'}
+                          fill={entry.avgTime > 24 ? '#E74C3C' : entry.avgTime > 12 ? '#F39C12' : '#2ECC71'}
                         />
                       ))}
                     </Bar>
@@ -275,22 +279,24 @@ const Analytics = () => {
               <Box sx={{ height: 300, mt: 2 }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={efficiencyData} layout="vertical">
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis type="number" stroke="#666" domain={[0, 100]} unit="%" />
-                    <YAxis dataKey="department" type="category" stroke="#666" width={80} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis type="number" stroke="#9A9A9A" domain={[0, 100]} unit="%" />
+                    <YAxis dataKey="department" type="category" stroke="#9A9A9A" width={80} />
                     <Tooltip
                       formatter={(value) => [`${value}%`, 'Efficiency']}
                       contentStyle={{
                         borderRadius: 8,
                         border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
                       }}
                     />
-                    <Bar dataKey="efficiency" fill="#1976d2" radius={[0, 4, 4, 0]}>
+                    <Bar dataKey="efficiency" fill="#D4A73C" radius={[0, 4, 4, 0]}>
                       {efficiencyData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.efficiency > 85 ? '#2e7d32' : entry.efficiency > 70 ? '#ed6c02' : '#d32f2f'}
+                          fill={entry.efficiency > 85 ? '#2ECC71' : entry.efficiency > 70 ? '#F39C12' : '#E74C3C'}
                         />
                       ))}
                     </Bar>
@@ -313,14 +319,16 @@ const Analytics = () => {
               <Box sx={{ height: 350, mt: 2 }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={monthlyTrends}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                    <XAxis dataKey="month" stroke="#666" />
-                    <YAxis stroke="#666" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" />
+                    <XAxis dataKey="month" stroke="#9A9A9A" />
+                    <YAxis stroke="#9A9A9A" />
                     <Tooltip
                       contentStyle={{
                         borderRadius: 8,
                         border: 'none',
-                        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                        backgroundColor: '#1E1E1E',
+                        color: '#FFFFFF',
                       }}
                     />
                     <Legend />
@@ -328,18 +336,18 @@ const Analytics = () => {
                       type="monotone"
                       dataKey="complaints"
                       name="New Complaints"
-                      stroke="#1976d2"
+                      stroke="#D4A73C"
                       strokeWidth={3}
-                      dot={{ fill: '#1976d2', strokeWidth: 2, r: 5 }}
+                      dot={{ fill: '#D4A73C', strokeWidth: 2, r: 5 }}
                       activeDot={{ r: 8 }}
                     />
                     <Line
                       type="monotone"
                       dataKey="resolved"
                       name="Resolved"
-                      stroke="#2e7d32"
+                      stroke="#2ECC71"
                       strokeWidth={3}
-                      dot={{ fill: '#2e7d32', strokeWidth: 2, r: 5 }}
+                      dot={{ fill: '#2ECC71', strokeWidth: 2, r: 5 }}
                       activeDot={{ r: 8 }}
                     />
                   </LineChart>

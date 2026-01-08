@@ -82,7 +82,7 @@ const DashboardLayout = () => {
   };
 
   const drawer = (
-    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', bgcolor: '#151515' }}>
       {/* Logo Section */}
       <Box
         sx={{
@@ -90,23 +90,23 @@ const DashboardLayout = () => {
           display: 'flex',
           alignItems: 'center',
           gap: 2,
-          background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
-          color: 'white',
+          background: 'linear-gradient(135deg, #D4A73C 0%, #B8963B 100%)',
+          color: '#0B0B0B',
         }}
       >
         <LocationCity sx={{ fontSize: 40 }} />
         <Box>
-          <Typography variant="h6" fontWeight={700}>
+          <Typography variant="h6" fontWeight={700} color="#0B0B0B">
             UrbanSense
           </Typography>
-          <Typography variant="caption" sx={{ opacity: 0.8 }}>
+          <Typography variant="caption" sx={{ opacity: 0.8, color: '#0B0B0B' }}>
             Admin Dashboard
           </Typography>
         </Box>
         {isMobile && (
           <IconButton
             onClick={handleDrawerToggle}
-            sx={{ ml: 'auto', color: 'white' }}
+            sx={{ ml: 'auto', color: '#0B0B0B' }}
           >
             <ChevronLeft />
           </IconButton>
@@ -126,16 +126,16 @@ const DashboardLayout = () => {
                 sx={{
                   borderRadius: 2,
                   py: 1.5,
-                  backgroundColor: isActive ? 'primary.main' : 'transparent',
-                  color: isActive ? 'white' : 'text.primary',
+                  backgroundColor: isActive ? '#D4A73C' : 'transparent',
+                  color: isActive ? '#0B0B0B' : '#D6D6D6',
                   '&:hover': {
-                    backgroundColor: isActive ? 'primary.dark' : 'action.hover',
+                    backgroundColor: isActive ? '#B8963B' : '#1E1E1E',
                   },
                 }}
               >
                 <ListItemIcon
                   sx={{
-                    color: isActive ? 'white' : 'primary.main',
+                    color: isActive ? '#0B0B0B' : '#D4A73C',
                     minWidth: 45,
                   }}
                 >
@@ -164,15 +164,16 @@ const DashboardLayout = () => {
             gap: 2,
             p: 2,
             borderRadius: 2,
-            bgcolor: 'grey.100',
+            bgcolor: '#1E1E1E',
+            border: '1px solid #2A2A2A',
           }}
         >
-          <Avatar sx={{ bgcolor: 'primary.main' }}>{user?.avatar}</Avatar>
+          <Avatar sx={{ bgcolor: '#D4A73C', color: '#0B0B0B' }}>{user?.avatar}</Avatar>
           <Box sx={{ flex: 1, minWidth: 0 }}>
-            <Typography variant="subtitle2" noWrap fontWeight={600}>
+            <Typography variant="subtitle2" noWrap fontWeight={600} color="#FFFFFF">
               {user?.name}
             </Typography>
-            <Typography variant="caption" color="text.secondary" noWrap>
+            <Typography variant="caption" color="#9A9A9A" noWrap>
               {user?.email}
             </Typography>
           </Box>

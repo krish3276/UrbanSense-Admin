@@ -139,10 +139,10 @@ const Complaints = () => {
     <Box>
       {/* Header */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight={700} gutterBottom>
+        <Typography variant="h4" fontWeight={700} gutterBottom color="#FFFFFF">
           Complaint Monitoring
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="#9A9A9A">
           Track and manage all city-wide complaints
         </Typography>
       </Box>
@@ -150,60 +150,60 @@ const Complaints = () => {
       {/* Stats */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
-          <Card>
+          <Card sx={{ bgcolor: '#151515', border: '1px solid #2A2A2A' }}>
             <CardContent sx={{ textAlign: 'center', py: 2 }}>
-              <Typography variant="h4" fontWeight={700} color="primary.main">
+              <Typography variant="h4" fontWeight={700} color="#D4A73C">
                 {stats.total}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="#9A9A9A">
                 Total
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
-          <Card>
+          <Card sx={{ bgcolor: '#151515', border: '1px solid #2A2A2A' }}>
             <CardContent sx={{ textAlign: 'center', py: 2 }}>
-              <Typography variant="h4" fontWeight={700} color="success.main">
+              <Typography variant="h4" fontWeight={700} color="#2ECC71">
                 {stats.resolved}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="#9A9A9A">
                 Resolved
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
-          <Card>
+          <Card sx={{ bgcolor: '#151515', border: '1px solid #2A2A2A' }}>
             <CardContent sx={{ textAlign: 'center', py: 2 }}>
-              <Typography variant="h4" fontWeight={700} color="info.main">
+              <Typography variant="h4" fontWeight={700} color="#3498DB">
                 {stats.inProgress}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="#9A9A9A">
                 In Progress
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
-          <Card>
+          <Card sx={{ bgcolor: '#151515', border: '1px solid #2A2A2A' }}>
             <CardContent sx={{ textAlign: 'center', py: 2 }}>
-              <Typography variant="h4" fontWeight={700} color="warning.main">
+              <Typography variant="h4" fontWeight={700} color="#F39C12">
                 {stats.pending}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="#9A9A9A">
                 Pending
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid size={{ xs: 6, sm: 4, md: 2.4 }}>
-          <Card>
+          <Card sx={{ bgcolor: '#151515', border: '1px solid #2A2A2A' }}>
             <CardContent sx={{ textAlign: 'center', py: 2 }}>
-              <Typography variant="h4" fontWeight={700} color="error.main">
+              <Typography variant="h4" fontWeight={700} color="#E74C3C">
                 {stats.critical}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" color="#9A9A9A">
                 Critical
               </Typography>
             </CardContent>
@@ -517,7 +517,7 @@ const Complaints = () => {
                       height: 180,
                       borderRadius: 2,
                       overflow: 'hidden',
-                      bgcolor: 'grey.100',
+                      bgcolor: '#1E1E1E',
                       mb: 2,
                       display: 'flex',
                       alignItems: 'center',
@@ -546,7 +546,7 @@ const Complaints = () => {
                       height: 180,
                       borderRadius: 2,
                       overflow: 'hidden',
-                      bgcolor: 'grey.100',
+                      bgcolor: '#1E1E1E',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -576,20 +576,20 @@ const Complaints = () => {
                       width: '100%',
                       height: 120,
                       borderRadius: 2,
-                      bgcolor: 'grey.200',
+                      bgcolor: '#1E1E1E',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       border: '2px dashed',
-                      borderColor: 'grey.400',
+                      borderColor: '#2A2A2A',
                     }}
                   >
                     <Box sx={{ textAlign: 'center' }}>
-                      <LocationOn sx={{ fontSize: 32, color: 'grey.500' }} />
-                      <Typography variant="caption" color="text.secondary" display="block">
+                      <LocationOn sx={{ fontSize: 32, color: '#9A9A9A' }} />
+                      <Typography variant="caption" color="#9A9A9A" display="block">
                         Map View Placeholder
                       </Typography>
-                      <Typography variant="caption" color="text.secondary">
+                      <Typography variant="caption" color="#9A9A9A">
                         Lat: {selectedComplaint.location?.lat}, Lng: {selectedComplaint.location?.lng}
                       </Typography>
                     </Box>
@@ -598,7 +598,7 @@ const Complaints = () => {
               </Grid>
             </DialogContent>
             <DialogActions sx={{ p: 2 }}>
-              <Button onClick={handleCloseDialog}>Close</Button>
+              <Button onClick={handleCloseDialog} sx={{ color: '#9A9A9A' }}>Close</Button>
             </DialogActions>
           </>
         )}

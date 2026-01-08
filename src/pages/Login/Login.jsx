@@ -53,7 +53,7 @@ const Login = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
+        background: 'linear-gradient(135deg, #0B0B0B 0%, #1E1E1E 100%)',
         p: 2,
       }}
     >
@@ -64,6 +64,8 @@ const Login = () => {
           width: '100%',
           maxWidth: 420,
           borderRadius: 3,
+          bgcolor: '#151515',
+          border: '1px solid #2A2A2A',
         }}
       >
         <Box sx={{ textAlign: 'center', mb: 4 }}>
@@ -72,19 +74,19 @@ const Login = () => {
               width: 80,
               height: 80,
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
+              background: 'linear-gradient(135deg, #D4A73C 0%, #B8963B 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 16px',
             }}
           >
-            <AdminPanelSettings sx={{ fontSize: 40, color: 'white' }} />
+            <AdminPanelSettings sx={{ fontSize: 40, color: '#0B0B0B' }} />
           </Box>
-          <Typography variant="h4" fontWeight={700} color="primary.main">
+          <Typography variant="h4" fontWeight={700} color="#D4A73C">
             UrbanSense
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary">
+          <Typography variant="subtitle1" color="#9A9A9A">
             Admin Dashboard
           </Typography>
         </Box>
@@ -95,14 +97,14 @@ const Login = () => {
           </Alert>
         )}
 
-        <Box sx={{ mb: 2, p: 2, bgcolor: 'grey.100', borderRadius: 1 }}>
-          <Typography variant="caption" color="text.secondary">
+        <Box sx={{ mb: 2, p: 2, bgcolor: '#1E1E1E', borderRadius: 1, border: '1px solid #2A2A2A' }}>
+          <Typography variant="caption" color="#9A9A9A">
             Demo Credentials:
           </Typography>
-          <Typography variant="body2">
+          <Typography variant="body2" color="#D6D6D6">
             Email: admin@urbansense.gov
           </Typography>
-          <Typography variant="body2">Password: admin123</Typography>
+          <Typography variant="body2" color="#D6D6D6">Password: admin123</Typography>
         </Box>
 
         <form onSubmit={handleSubmit}>
@@ -150,7 +152,12 @@ const Login = () => {
               mt: 3,
               mb: 2,
               py: 1.5,
-              background: 'linear-gradient(135deg, #1a237e 0%, #0277bd 100%)',
+              background: 'linear-gradient(135deg, #D4A73C 0%, #B8963B 100%)',
+              color: '#0B0B0B',
+              fontWeight: 700,
+              '&:hover': {
+                background: 'linear-gradient(135deg, #E4C06C 0%, #D4A73C 100%)',
+              },
             }}
           >
             {loading ? 'Signing in...' : 'Sign In'}
@@ -159,7 +166,7 @@ const Login = () => {
 
         <Typography
           variant="caption"
-          color="text.secondary"
+          color="#9A9A9A"
           display="block"
           textAlign="center"
         >
